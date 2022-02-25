@@ -1,21 +1,26 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+  // Assignment Code
+  var generateBtn = document.querySelector("#generate");
+  
+  // Write password to the #password input
+  function writePassword() {
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+  
+    passwordText.value = password;
+  
+  };
 
-  passwordText.value = password;
 
-}
+  
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
 
 
 // DETERMINE PASSWORD LENGTH
-
 var passwordLength = function() {
 
   var promptLength = window.prompt('Please enter a password length between 8 - 128')
@@ -32,7 +37,6 @@ passwordLength();
 console.log(passwordLength);
 
 // CREATE MASTER ARRAY
-
 var emptyCharacterArray = []
 var upperCaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'y', 'Z']
 var lowerCaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] 
@@ -87,7 +91,6 @@ masterCharacterArray();
 console.log(masterCharacterArray);
 
 // LOOP THROUGH masterCharacterArray TO CREATE passwordArray
-
 var passwordArray = [];
 var randomPasswordArray = function() {
 
@@ -107,8 +110,12 @@ console.log(passwordArray);
 //console.log(password);
 //
 
-var generatePassword = function() {
-  var password = passwordArray.join('');
-//  console.log(password);
-};
-generatePassword();
+   
+   var generatePassword = function() {
+     var password = passwordArray.join('');
+     console.log(password);
+   
+     window.alert("Your password is " + password);
+   
+   };
+   generatePassword();
