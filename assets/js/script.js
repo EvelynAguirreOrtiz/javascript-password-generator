@@ -70,7 +70,7 @@ var masterCharacterArray = function () {
   //include special characters
   var promptCharacters = window.prompt('Do you want to include special characters? Type "YES" or "NO"') 
     if (promptCharacters === "yes") {
-      window.confirm ('Your password will include sepcial characters.');
+      window.confirm ('Your password will include special characters.');
       masterCharacterArray = masterCharacterArray3.concat(specialCharacterArray)
     } else {
       masterCharacterArray = masterCharacterArray3
