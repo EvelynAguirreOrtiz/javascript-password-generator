@@ -11,23 +11,16 @@
   
   };
 
-
-  
-
-
-
   // Add event listener to generate button
   generateBtn.addEventListener("click", writePassword);
 
 
 // DETERMINE PASSWORD LENGTH
 var passwordLength = function() {
-
-  var promptLength = window.prompt('Please enter a password length between 8 - 128')
+  var promptLength = window.prompt('Please enter a password length between 8 - 128');
     if (promptLength >= 8 && promptLength <= 128) {
-      window.prompt ('Your password will be ' + promptLength + ' characters long.');  
+      window.confirm ('Your password will be ' + promptLength + ' characters long.');  
       passwordLength = promptLength;
-//      console.log(passwordLength);
     } else {
       window.alert ('Your password must be between 8-128 characters long. Please enter a password length between 8 - 128.');  
       return passwordLength ();
@@ -48,32 +41,36 @@ var masterCharacterArray = function () {
   var promptUpperCase = window.prompt('Please choose at least one character type for your password. Do you want to include upper case letters? Type "YES" or "NO"')
   promptUpperCase = promptUpperCase.toLowerCase();
     if (promptUpperCase === "yes") { 
-      var masterCharacterArray1 = emptyCharacterArray.concat(upperCaseArray)
+      window.confirm ('Your password will include upper case characters.');
+      var masterCharacterArray1 = emptyCharacterArray.concat(upperCaseArray);
     } else {
-      masterCharacterArray1 = emptyCharacterArray
+      masterCharacterArray1 = emptyCharacterArray;
     };
     console.log(masterCharacterArray1)  
   //include lower case letters  
-  var promptLowerCase =  window.prompt('Do you want to include lower case letters? Type "YES" or "NO"')
+  var promptLowerCase =  window.prompt('Do you want to include lower case letters? Type "YES" or "NO"');
   promptLowerCase = promptLowerCase.toLocaleLowerCase();
     if (promptLowerCase === "yes") {
-      var masterCharacterArray2 = masterCharacterArray1.concat(lowerCaseArray)
+      window.confirm ('Your password will include lower case characters.');
+      var masterCharacterArray2 = masterCharacterArray1.concat(lowerCaseArray);
     } else {
-      masterCharacterArray2 = masterCharacterArray1
+      masterCharacterArray2 = masterCharacterArray1;
     };
     console.log(masterCharacterArray2);
   // include numbers  
-  var promptNumbers = window.prompt('Do you want to include numbers? Type "YES" or "NO"')
+  var promptNumbers = window.prompt('Do you want to include numbers? Type "YES" or "NO"');
   promptNumbers = promptNumbers.toLocaleLowerCase();
     if (promptNumbers === "yes") {
-    var masterCharacterArray3 = masterCharacterArray2.concat(numeralArray)
+      window.confirm ('Your password will include numbers.');
+      var masterCharacterArray3 = masterCharacterArray2.concat(numeralArray);
     } else {
-      masterCharacterArray3 = masterCharacterArray2
+      masterCharacterArray3 = masterCharacterArray2;
     };
     console.log(masterCharacterArray3);
   //include special characters
   var promptCharacters = window.prompt('Do you want to include special characters? Type "YES" or "NO"') 
     if (promptCharacters === "yes") {
+      window.confirm ('Your password will include sepcial characters.');
       masterCharacterArray = masterCharacterArray3.concat(specialCharacterArray)
     } else {
       masterCharacterArray = masterCharacterArray3
@@ -85,7 +82,6 @@ var masterCharacterArray = function () {
     window.alert('You must choose at least one character type.')
     return masterCharacterArray();
   }
-
 };
 masterCharacterArray();
 console.log(masterCharacterArray);
@@ -93,7 +89,6 @@ console.log(masterCharacterArray);
 // LOOP THROUGH masterCharacterArray TO CREATE passwordArray
 var passwordArray = [];
 var randomPasswordArray = function() {
-
   for (i = 0; i < passwordLength; i++) {
 // index of character from masterCharacterArray
   var randomPasswordCharacter = masterCharacterArray[Math.floor(Math.random() * masterCharacterArray.length)];
@@ -110,12 +105,10 @@ console.log(passwordArray);
 //console.log(password);
 //
 
-   
-   var generatePassword = function() {
-     var password = passwordArray.join('');
-     console.log(password);
-   
-     window.alert("Your password is " + password);
-   
-   };
-   generatePassword();
+var generatePassword = function() {
+  var password = passwordArray.join('');
+  console.log(password);
+
+  window.alert("Your password is " + password);
+};
+generatePassword();
